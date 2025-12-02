@@ -1,1 +1,19 @@
+enum UserRole {
+   ADMIN
+   STUDENT
+   INSTRUCTOR
+}
 
+enum CourseLevel {
+   BEGINNER
+   INTERMEDIATE
+   ADVANCED
+}
+
+enum CourseCategory {
+   DEVELOPMENT
+   DESIGN
+   MARKETING
+   BUSINESS
+   PERSONAL_DEVELOPMENT
+}
