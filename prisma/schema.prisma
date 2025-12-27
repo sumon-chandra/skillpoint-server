@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// Enums
+enum UserRole {
+  USER
+  ADMIN
+  INSTRUCTOR
+}
+
+// Models
+model Student {
+  id        String    @id @default(uuid())
+  name      String
+  email     String    @unique
+  password  String
+  role      UserRole
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  profiles  Profile[]
+}
+
+model Profile {
+  id        String
+  student   Student @relation(fields: [studentId], references: [id])
+  studentId String  @unique
+  bio       String?
+  avatarUrl String?
+}
