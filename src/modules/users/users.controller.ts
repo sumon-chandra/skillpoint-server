@@ -1,18 +1,18 @@
 import { Request, Response } from "express";
 import httpStatus from "http-status-codes";
 import { catchAsync } from "../../utils/catch-async";
-import { studentServices } from "./students.service";
+import { userServices } from "./users.service";
 import { sendResponse } from "../../utils/send-response";
 
-const createStudent = catchAsync(async (req: Request, res: Response) => {
-	const student = await studentServices.createStudent(req.body);
+const createUser = catchAsync(async (req: Request, res: Response) => {
+	const user = await userServices.createUser(req.body);
 
 	sendResponse(res, {
 		success: true,
 		statusCode: httpStatus.CREATED,
 		message: "Register Successful!",
-		data: student,
+		data: user,
 	});
 });
 
-export const studentControllers = { createStudent };
+export const studentControllers = { createUser };
